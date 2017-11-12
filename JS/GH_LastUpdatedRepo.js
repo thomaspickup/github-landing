@@ -18,8 +18,8 @@ $(function setupLastUpdatedRepo(){
           else {  
             outhtml = '<div class="card-deck">';
             outhtml = outhtml + '<div class="row">';
-            for (i = 0; i < 2; i++) {
-                    outhtml = outhtml + '<div class="col-sm-10" height="100%"><div class="card" style="background-color:rgba(0, 0, 0, 0); border-color:rgba(0, 0, 0, 0)"><div class="card-body">';
+            for (i = 0; i < 6; i++) {
+                    outhtml = outhtml + '<div class="col-sm-6" height="100%"><div class="card" style="background-color:rgba(0, 0, 0, 0); border-color:rgba(0, 0, 0, 0)"><div class="card-body">';
                     outhtml = outhtml + '<h4 class="card-title">';
                     outhtml = outhtml + repositories[i].name;
                     outhtml = outhtml + '</h4>';
