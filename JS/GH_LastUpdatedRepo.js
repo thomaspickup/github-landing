@@ -26,7 +26,7 @@ $(function setupLastUpdatedRepo(){
                     outhtml = outhtml + '<h6 class="card-subtitle mb-2 text-muted">';
                     outhtml = outhtml + repositories[i].language;
                     outhtml = outhtml + '</h6>';
-                    outhtml = outhtml + '<p class="card-text">';
+                    outhtml = outhtml + '<p class="card-text lead">';
                     outhtml = outhtml + repositories[i].description;
                     outhtml = outhtml + '</p>';
                     outhtml = outhtml + '<a href="'+ repositories[i].html_url + '" class="btn">Repository</a>';
