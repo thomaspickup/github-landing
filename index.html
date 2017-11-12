@@ -1,226 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Thomas Pickup Homepage - Student, Programmer, IT Assistant">
+        <meta name="author" content="Thomas Pickup">
 
-  <head>
+        <title>Thomas Pickup</title>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Thomas Pickup Homepage - Student, Programmer, IT Assistant">
-    <meta name="author" content="Thomas Pickup">
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
-    <title>Thomas Pickup</title>
+        <!-- Custom fonts for this template -->
+        <link href="//thomaspickup.co.uk/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <!-- Custom styles for this template -->
+        <link href="//thomaspickup.co.uk/css/landing-page.css" rel="stylesheet" type="text/css">
 
+    </head>
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">Thomas Pickup</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://thomaspickup.co.uk/apps/goalpost/">Apps</a>  
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://github.com/thomaspickup">GitHub</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://blog.thomaspickup.co.uk/">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-    <!-- Custom fonts for this template -->
-    <link href="//thomaspickup.co.uk/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+        <!-- Header -->
+        <header class="intro-header">
+            <div class="container">
+                <div class="intro-message">
+                    <h1>Thomas Pickup</h1>
+                    <hr class="intro-divider">
+                    <ul class="list-inline intro-social-buttons">
+                        <li class="list-inline-item">
+                            <a href="https://twitter.com/thomaspickup" class="btn btn-secondary btn-lg">
+                                <i class="fa fa-twitter fa-fw"></i>
+                                <span class="network-name">Twitter</span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://github.com/thomaspickup" class="btn btn-secondary btn-lg">
+                                <i class="fa fa-github fa-fw"></i>
+                                <span class="network-name">Github</span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://www.linkedin.com/in/thomaspickup/" class="btn btn-secondary btn-lg">
+                                <i class="fa fa-linkedin fa-fw"></i>
+                                <span class="network-name">Linkedin</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
 
-    <!-- Custom styles for this template -->
-    <link href="//thomaspickup.co.uk/css/landing-page.css" rel="stylesheet" type="text/css">
+        <!-- Page Content -->
+        <!-- About Section -->
+        <section class="content-section-b">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 mr-auto order-lg-2">
+                        <hr class="section-heading-spacer">
+                        <div class="clearfix"></div>
+                        <h2 class="section-heading">About</h2>
+                        <p class="lead">Student at Queen's University Belfast and IT Assistant at a major national legal firm.</p>
+                        <p class="lead">I develop apps in my free time and am constantly updating my open source repositories (including this website!), check them out at my GitHub page or find out my latest repositories below!</p>
+                        <p class="lead">I'm also trying to write up some of my experiences in the Computer Science Industry on my Blog, you can view my latest writing below.</p>
+                        <a href="" role="button" class="btn btn-outline-secondary" id="tumblrPost"></a>
+                    </div>
+                    <div class="col-lg-5 ml-auto order-lg-1">
+                        <img class="img-fluid" src="img/profile.jpeg" style="border-radius: 50%;" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  </head>
+        <!-- Latest Repositories -->
+        <section class="content-section-a">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-1">
+                        <hr class="section-heading-spacer">
+                        <div class="clearfix"></div>
+                        <h2 class="section-heading">Latest Repositories</h2>
+                    </div>
+                    <div id="gh_lastupdatedrepo"></div>
+                </div>
+            </div>
+        </section>
 
-  <body>
+        <!-- Latest Apps 
+        <section class="content-section-b">
+            <div class="container">
+            <div class="row">
+                <div class="col-lg-5 mr-auto order-lg-2">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                        <h2 class="section-heading">3D Device Mockups<br>by PSDCovers</h2>
+                        <p class="lead">Turn your 2D designs into high quality, 3D product shots in seconds using free Photoshop actions by
+                        <a target="_blank" href="http://www.psdcovers.com/">PSDCovers</a>! Visit their website to download some of their awesome, free photoshop actions!</p>
+                    </div>
+                    <div class="col-lg-5 ml-auto order-lg-1">
+                        <img class="img-fluid" src="img/dog.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+        -->
+        <!-- Contact Me Banner -->
+        <aside class="banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 my-auto">
+                        <h2>Connect with me</h2>
+                    </div>
+                    <div class="col-lg-6 my-auto">
+                        <ul class="list-inline banner-social-buttons">
+                            <li class="list-inline-item">
+                                <a href="https://twitter.com/thomaspickup" class="btn btn-secondary btn-lg">
+                                    <i class="fa fa-twitter fa-fw"></i>
+                                    <span class="network-name">Twitter</span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://github.com/thomaspickup" class="btn btn-secondary btn-lg">
+                                    <i class="fa fa-github fa-fw"></i>
+                                    <span class="network-name">Github</span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.linkedin.com/in/thomaspickup/" class="btn btn-secondary btn-lg">
+                                    <i class="fa fa-linkedin fa-fw"></i>
+                                    <span class="network-name">Linkedin</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">Thomas Pickup</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="https://thomaspickup.co.uk/apps/goalpost/">Apps</a>  
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://github.com/thomaspickup">GitHub</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://blog.thomaspickup.co.uk/">Blog</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+            </div>
+        </aside>
 
-    <!-- Header -->
-    <header class="intro-header">
-      <div class="container">
-        <div class="intro-message">
-          <h1>Thomas Pickup</h1>
-          <hr class="intro-divider">
-          <ul class="list-inline intro-social-buttons">
-            <li class="list-inline-item">
-              <a href="https://twitter.com/thomaspickup" class="btn btn-secondary btn-lg">
-                <i class="fa fa-twitter fa-fw"></i>
-                <span class="network-name">Twitter</span>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="https://github.com/thomaspickup" class="btn btn-secondary btn-lg">
-                <i class="fa fa-github fa-fw"></i>
-                <span class="network-name">Github</span>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="https://www.linkedin.com/in/thomaspickup/" class="btn btn-secondary btn-lg">
-                <i class="fa fa-linkedin fa-fw"></i>
-                <span class="network-name">Linkedin</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </header>
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="container-fluid">
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- Page Bottom -->
+                    <center>
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:728px;height:90px"
+                             data-ad-client="ca-pub-6171104968085827"
+                             data-ad-slot="7291515595"></ins>
+                    </center>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <a href="https://thomaspickup.co.uk">Home</a>
+                    </li>
+                    <li class="footer-menu-divider list-inline-item">&sdot;</li>
+                    <li class="list-inline-item">
+                        <a href="https://thomaspickup.co.uk/apps/goalpost/">Apps</a>
+                    </li>
+                    <li class="footer-menu-divider list-inline-item">&sdot;</li>
+                    <li class="list-inline-item">
+                        <a href="https://github.com/thomaspickup">GitHub</a>
+                    </li>
+                    <li class="footer-menu-divider list-inline-item">&sdot;</li>
+                    <li class="list-inline-item">
+                        <a href="https://blog.thomaspickup.co.uk">Blog</a>
+                    </li>
+                </ul>
+                <p class="copyright text-muted small">Copyright &copy; Thomas Pickup 2017. All Rights Reserved</p>
+            </div>
+        </footer>
 
-    <!-- Page Content -->
-    <!-- About Section -->
-    <section class="content-section-b">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-5 mr-auto order-lg-2">
-            <hr class="section-heading-spacer">
-            <div class="clearfix"></div>
-            <h2 class="section-heading">About</h2>
-            <p class="lead">Student at Queen's University Belfast and IT Assistant at a major national legal firm.</p>
-            <p class="lead">I develop apps in my free time and am constantly updating my open source repositories (including this website!), check them out at my GitHub page or find out my latest repositories below!</p>
-          </div>
-          <div class="col-lg-5 ml-auto order-lg-1">
-            <img class="img-fluid" src="img/profile.jpeg" style="border-radius: 50%;" alt="">
-          </div>
-        </div>
-      </div>
-    </section>
-    
-      
-    <!-- Latest Repositories -->
-    <section class="content-section-a">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-1">
-            <hr class="section-heading-spacer">
-            <div class="clearfix"></div>
-            <h2 class="section-heading">Latest Repositories</h2>
-          </div>
-            <div id="gh_lastupdatedrepo"></div>
-        </div>
-      </div>
-    </section>
+        <!-- Bootstrap core JavaScript -->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        
+        <!-- Custom JS -->
+        <script src="js/GH_LastUpdatedRepo.js"></script>
+        <script type="text/javascript">
+            function onLoad() {
+                setupLastUpdatedRepos();
+            }
+            window.onload = onLoad;  
+        </script>
+        <script type="text/javascript" src="https://blog.thomaspickup.co.uk/api/read/json"></script>
+        <script type="text/javascript">
+            var posts = tumblr_api_read['posts']
+            var lastPost = posts[0];
+            var postUrl = lastPost['url-with-slug'];
+            var regularTitle = lastPost['regular-title'];
+            document.getElementById("tumblrPost").innerText = regularTitle;
+            document.getElementById("tumblrPost").href = postUrl;
+        </script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                                    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-    <!-- Latest Apps 
-    <section class="content-section-b">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-5 mr-auto order-lg-2">
-            <hr class="section-heading-spacer">
-            <div class="clearfix"></div>
-            <h2 class="section-heading">3D Device Mockups<br>by PSDCovers</h2>
-            <p class="lead">Turn your 2D designs into high quality, 3D product shots in seconds using free Photoshop actions by
-              <a target="_blank" href="http://www.psdcovers.com/">PSDCovers</a>! Visit their website to download some of their awesome, free photoshop actions!</p>
-          </div>
-          <div class="col-lg-5 ml-auto order-lg-1">
-            <img class="img-fluid" src="img/dog.png" alt="">
-          </div>
-        </div>
-      </div>
-    </section>
-    -->
-    <aside class="banner">
-
-      <div class="container">
-
-        <div class="row">
-          <div class="col-lg-6 my-auto">
-            <h2>Connect with me</h2>
-          </div>
-          <div class="col-lg-6 my-auto">
-            <ul class="list-inline banner-social-buttons">
-              <li class="list-inline-item">
-                <a href="https://twitter.com/thomaspickup" class="btn btn-secondary btn-lg">
-                  <i class="fa fa-twitter fa-fw"></i>
-                  <span class="network-name">Twitter</span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://github.com/thomaspickup" class="btn btn-secondary btn-lg">
-                  <i class="fa fa-github fa-fw"></i>
-                  <span class="network-name">Github</span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://www.linkedin.com/in/thomaspickup/" class="btn btn-secondary btn-lg">
-                  <i class="fa fa-linkedin fa-fw"></i>
-                  <span class="network-name">Linkedin</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-      <!-- /.container -->
-
-    </aside>
-    <!-- /.banner -->
-
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="container-fluid">
-          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-          <!-- Page Bottom -->
-          <center>
-          <ins class="adsbygoogle"
-               style="display:inline-block;width:728px;height:90px"
-               data-ad-client="ca-pub-6171104968085827"
-               data-ad-slot="7291515595"></ins>
-          </center>
-          <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
-        </div>
-        <ul class="list-inline">
-          <li class="list-inline-item">
-            <a href="https://thomaspickup.co.uk">Home</a>
-          </li>
-          <li class="footer-menu-divider list-inline-item">&sdot;</li>
-          <li class="list-inline-item">
-            <a href="https://thomaspickup.co.uk/apps/goalpost/">Apps</a>
-          </li>
-          <li class="footer-menu-divider list-inline-item">&sdot;</li>
-          <li class="list-inline-item">
-            <a href="https://github.com/thomaspickup">GitHub</a>
-          </li>
-          <li class="footer-menu-divider list-inline-item">&sdot;</li>
-          <li class="list-inline-item">
-            <a href="https://blog.thomaspickup.co.uk">Blog</a>
-          </li>
-        </ul>
-        <p class="copyright text-muted small">Copyright &copy; Thomas Pickup 2017. All Rights Reserved</p>
-      </div>
-    </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="js/GH_LastUpdatedRepo.js"></script>
-    <script type="text/javascript">
-        window.onload = setupLastUpdatedRepos;  
-    </script>
-    <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-45973091-1', 'auto');
-  ga('send', 'pageview');
-</script>
-  </body>
+            ga('create', 'UA-45973091-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+    </body>
 
 </html>
