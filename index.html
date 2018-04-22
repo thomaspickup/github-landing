@@ -85,7 +85,7 @@
                         <p class="lead">Student at Queen's University Belfast and IT Assistant at a major national legal firm.</p>
                         <p class="lead">I develop apps in my free time and am constantly updating my open source repositories (including this website!), check them out at my GitHub page or find out my latest repositories below!</p>
                         <p class="lead">I'm also trying to write up some of my experiences in the Computer Science Industry on my Blog, you can view my latest writing below.</p>
-                        <a href="" role="button" class="btn btn-outline-secondary" id="tumblrPost"></a>
+                        <a href="" role="button" class="btn btn-outline-secondary" id="latestPost"></a>
                         <br>
                         <br>
                     </div>
@@ -231,14 +231,29 @@
             }
             window.onload = onLoad;
         </script>
-        <script type="text/javascript" src="http://blog.thomaspickup.co.uk/api/read/json"></script>
         <script type="text/javascript">
-            var posts = tumblr_api_read['posts']
-            var lastPost = posts[0];
-            var postUrl = lastPost['url-with-slug'];
-            var regularTitle = lastPost['regular-title'];
-            document.getElementById("tumblrPost").innerText = regularTitle;
-            document.getElementById("tumblrPost").href = postUrl;
+            var jsonResponse = getJSON("https://blog.thomaspickup.co.uk/wp-json/wp/v2/posts?per_page=1");
+            var jsonProcessed = JSON.parse(jsonResponse);
+            var jsonObject = jsonProcessed[0];
+            document.getElementById("latestPost").innerText = jsonObject.title.rendered;
+            document.getElementById("latestPost").href = jsonObject.link;
+
+            function getJSON(url) {
+                var resp ;
+                var xmlHttp ;
+
+                resp  = '' ;
+                xmlHttp = new XMLHttpRequest();
+
+                if(xmlHttp != null)
+                {
+                  xmlHttp.open( "GET", url, false );
+                  xmlHttp.send( null );
+                  resp = xmlHttp.responseText;
+                }
+
+                return resp ;
+              }
         </script>
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
