@@ -66,7 +66,7 @@ $(function setupLastUpdatedRepo(){
                     outhtml = outhtml + '<p class="card-text lead">';
                     outhtml = outhtml + repositories[i].description;
                     outhtml = outhtml + '</p>';
-                    outhtml = outhtml + '<a href="'+ repositories[i].html_url + '" class="btn">Repository</a>';
+                    outhtml = outhtml + '<a href="'+ repositories[i].homepage + '" class="btn">Homepage</a> <a href="'+ repositories[i].homepage + '" class="btn">Repository</a>';
                     outhtml = outhtml + '</div></div></div>';
                 }
             outhtml = outhtml + '</div></div>';
