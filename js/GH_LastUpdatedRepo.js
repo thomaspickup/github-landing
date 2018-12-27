@@ -48,13 +48,19 @@ $(function setupLastUpdatedRepo(){
                       }
                     }
 
+                    if (repositories[i].language == null) {
+                      repolanguage = "Unknown Language"
+                    } else {
+                      repolanguage = repositories[i].language
+                    }
+
                     // CREATES CARD FOR OUTPUTTING TO SCREEN
                     outhtml = outhtml + '<div class="col-sm-6" height="100%"><div class="card" style="background-color:rgba(0, 0, 0, 0); border-color:rgba(0, 0, 0, 0)"><div class="card-body">';
                     outhtml = outhtml + '<h4 class="card-title">';
                     outhtml = outhtml + repositories[i].name;
                     outhtml = outhtml + '</h4>';
                     outhtml = outhtml + '<h6 class="card-subtitle mb-2 text-muted">';
-                    outhtml = outhtml + repositories[i].language + " | ";
+                    outhtml = outhtml + repolanguage + " | ";
                     outhtml = outhtml + difference + " " + multiplier + " Ago.";
                     outhtml = outhtml + '</h6>';
                     outhtml = outhtml + '<p class="card-text lead">';
