@@ -32,7 +32,7 @@
         <link href="//thomaspickup.co.uk/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
         <link href="//thomaspickup.co.uk/css/landing-page.css" rel="stylesheet" type="text/css">
-
+        <link rel="stylesheet" href="https://cdn.rawgit.com/IonicaBizau/github-calendar/gh-pages/dist/github-calendar.css"/>
     </head>
     <body>
         <!-- Navigation -->
@@ -117,6 +117,7 @@
                         <div class="clearfix"></div>
                         <h2 class="section-heading">Latest Repositories</h2>
                     </div>
+                    <div class="calendar"></div>
                     <div id="gh_lastupdatedrepo"></div>
                 </div>
             </div>
@@ -239,6 +240,10 @@
                 setupLastUpdatedRepos();
             }
             window.onload = onLoad;
+        </script>
+        <script src="https://cdn.rawgit.com/IonicaBizau/github-calendar/gh-pages/dist/github-calendar.min.js"></script>
+        <script>
+            GitHubCalendar(".calendar", "thomaspickup");
         </script>
         <script type="text/javascript">
             var jsonResponse = getJSON("https://blog.thomaspickup.co.uk/wp-json/wp/v2/posts?per_page=1");
