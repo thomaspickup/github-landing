@@ -13,6 +13,20 @@ $(function setupLastUpdatedRepo(){
           outputPageContent();
         });
 
+        var profile;
+        $.getJSON(requri, function(json) {
+          profile = json;
+          setupProfile();
+        });
+
+        function setupProfile() {
+          profile_picture = "<img class='profile_picture' src='" + profile["avatar_url"] + "'/>";
+          output = "<p class='lead'>" + profile["bio"] + "</p>";
+
+          $('#gh_picture').html(profile_picture);
+          $('#gh_profile').html(output);
+        }
+
         function outputPageContent() {
           if(repositories.length == 0) { outhtml = outhtml + '<p>No repos!</p>'; }
           else {
@@ -64,10 +78,12 @@ $(function setupLastUpdatedRepo(){
                     outhtml = outhtml + '</div></div></div>';
                 }
             outhtml = outhtml + '</div></div>';
-            }
+          }
 
           $('#gh_lastupdatedrepo').html(outhtml);
         }
+
+
     }); // end requestJSON Ajax call
 
   function requestJSON(url, callback) {
