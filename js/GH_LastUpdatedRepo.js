@@ -72,7 +72,13 @@ $(function setupLastUpdatedRepo(){
                     outhtml = outhtml + difference + " " + multiplier + " Ago.";
                     outhtml = outhtml + '</h6>';
                     outhtml = outhtml + '<p class="card-text lead">';
-                    outhtml = outhtml + repositories[i].description;
+
+                    if (repositories[i].description != null) {
+                      outhtml = outhtml + repositories[i].description;
+                    } else {
+                      outhtml = outhtml + "No Description Yet. :(";
+                    }
+
                     outhtml = outhtml + '</p>';
                     outhtml = outhtml + '<a href="'+ repositories[i].html_url + '" class="btn">Repository</a>';
                     outhtml = outhtml + '</div></div></div>';
@@ -82,8 +88,6 @@ $(function setupLastUpdatedRepo(){
 
           $('#gh_lastupdatedrepo').html(outhtml);
         }
-
-
     }); // end requestJSON Ajax call
 
   function requestJSON(url, callback) {
