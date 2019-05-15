@@ -14,7 +14,7 @@
       <!-- Introduction -->
       <div id="gh_picture" class="text-center mb-2"></div>
       <div class="clearfix"></div>
-      <h2 class="section-heading text-center">Thomas Pickup</h2>
+      <h2 id="gh_name" class="section-heading text-center"></h2>
       <div id="gh_profile"></div>
 
       <!-- Recent Activity
@@ -190,6 +190,7 @@
                         + '<a class="btn btn-outline-secondary" role="button">#' + profile["public_repos"] + ' Repos</a>'
                         + "</div>";
 
+              $('#gh_name').html(profile['name']);
               $('#gh_picture').html(profile_picture);
               $('#gh_profile').html(output);
             }
