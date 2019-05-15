@@ -47,6 +47,10 @@
 
   <!-- GitHub Script -->
   <script type="text/javascript">
+    var username = 'thomaspickup';
+    var userAPI   = 'https://api.github.com/users/'+ username;
+    var repoAPI  = 'https://api.github.com/users/'+ username + '/repos?sort=pushed';
+
     function createCard(repository, multiplier, difference) {
       cardOutput = '';
 
@@ -79,15 +83,11 @@
       // Get the search results
       var searchTerm = $('#gh_search').val().toLowerCase();
 
-      var username = 'thomaspickup';
-      var requri   = 'https://api.github.com/users/'+username;
-      var repouri  = 'https://api.github.com/users/thomaspickup/repos?sort=pushed';
-
-      requestJSON(requri, function(json) {
+      requestJSON(userAPI, function(json) {
           var outhtml = '';
 
           var repositories;
-          $.getJSON(repouri, function(json){
+          $.getJSON(repoAPI, function(json){
             repositories = json;
             outputPageContent();
           });
@@ -160,22 +160,18 @@
     });
 
     $(function setupLastUpdatedRepo() {
-        var username = 'thomaspickup';
-        var requri   = 'https://api.github.com/users/'+username;
-        var repouri  = 'https://api.github.com/users/thomaspickup/repos?sort=pushed';
-
-        requestJSON(requri, function(json) {
+        requestJSON(userAPI, function(json) {
 
             var outhtml = '';
 
             var repositories;
-            $.getJSON(repouri, function(json){
+            $.getJSON(repoAPI, function(json){
               repositories = json;
               outputPageContent();
             });
 
             var profile;
-            $.getJSON(requri, function(json) {
+            $.getJSON(userAPI, function(json) {
               profile = json;
               setupProfile();
             });
