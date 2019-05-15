@@ -16,11 +16,17 @@
       <h2 class="section-heading text-center">Thomas Pickup</h2>
       <div id="gh_profile"></div>
 
-      <!-- Recent Repositories -->
+      <!-- Recent Activity
+      <hr class="section-heading-spacer">
+      <div class="clearfix"></div>
+      <h2 class="section-heading">Recent Activity</h2>
+      -->
+      
+      <!-- Repositories -->
       <hr class="section-heading-spacer">
       <div class="clearfix"></div>
       <h2 class="section-heading">Repositories</h2>
-      <p class="lead">Feel free to search through my repositories!</p>
+      <p class="lead">Feel free to search through my repositories, just start typing in the search box!</p>
       <hr>
       <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -38,13 +44,32 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-  <!-- GitHub Load -->
-  <script src="js/GH_LastUpdatedRepo.js"></script>
+  <!-- GitHub Script -->
   <script type="text/javascript">
-    function onLoad() {
-      setupLastUpdatedRepos();
+    function createCard(repository, multiplier, difference) {
+      cardOutput = '';
+
+      cardOutput = cardOutput + '<div class="col-sm-6" height="100%"><div class="card" style="background-color:rgba(0, 0, 0, 0); border-color:rgba(0, 0, 0, 0)"><div class="card-body">';
+      cardOutput = cardOutput + '<h4 class="card-title"><a href="' + repository.html_url + '">';
+      cardOutput = cardOutput + repository.name;
+      cardOutput = cardOutput + '</a></h4>';
+      cardOutput = cardOutput + '<h6 class="card-subtitle mb-2 text-muted">';
+      cardOutput = cardOutput + repository.language + " | ";
+      cardOutput = cardOutput + difference + " " + multiplier + " Ago.";
+      cardOutput = cardOutput + '</h6>';
+      cardOutput = cardOutput + '<p class="card-text lead">';
+
+      if (repository.description != null) {
+        cardOutput = cardOutput + repository.description;
+      } else {
+        cardOutput = cardOutput + "No Description Yet. :(";
+      }
+
+      cardOutput = cardOutput + '</p>';
+      cardOutput = cardOutput + '</div></div></div>';
+
+      return cardOutput;
     }
-    window.onload = onLoad;
 
     $('#gh_search').keyup(function() {
       // Set to pending icon
@@ -105,26 +130,7 @@
                     }
                   }
 
-                  // CREATES CARD FOR OUTPUTTING TO SCREEN
-                  outhtml = outhtml + '<div class="col-sm-6" height="100%"><div class="card" style="background-color:rgba(0, 0, 0, 0); border-color:rgba(0, 0, 0, 0)"><div class="card-body">';
-                  outhtml = outhtml + '<h4 class="card-title">';
-                  outhtml = outhtml + repositories[i].name;
-                  outhtml = outhtml + '</h4>';
-                  outhtml = outhtml + '<h6 class="card-subtitle mb-2 text-muted">';
-                  outhtml = outhtml + repositories[i].language + " | ";
-                  outhtml = outhtml + difference + " " + multiplier + " Ago.";
-                  outhtml = outhtml + '</h6>';
-                  outhtml = outhtml + '<p class="card-text lead">';
-
-                  if (repositories[i].description !== null) {
-                    outhtml = outhtml + repositories[i].description;
-                  } else {
-                    outhtml = outhtml + "No Description Yet. :(";
-                  }
-
-                  outhtml = outhtml + '</p>';
-                  outhtml = outhtml + '<a href="'+ repositories[i].html_url + '" class="btn">Repository</a>';
-                  outhtml = outhtml + '</div></div></div>';
+                  outhtml = outhtml + createCard(repositories[i], multiplier, difference);
                 }
               }
               outhtml = outhtml + '</div></div>';
@@ -143,5 +149,101 @@
         });
       }
     });
+
+    $(function setupLastUpdatedRepo() {
+        var username = 'thomaspickup';
+        var requri   = 'https://api.github.com/users/'+username;
+        var repouri  = 'https://api.github.com/users/thomaspickup/repos?sort=pushed';
+
+        requestJSON(requri, function(json) {
+
+            var outhtml = '';
+
+            var repositories;
+            $.getJSON(repouri, function(json){
+              repositories = json;
+              outputPageContent();
+            });
+
+            var profile;
+            $.getJSON(requri, function(json) {
+              profile = json;
+              setupProfile();
+            });
+
+            function setupProfile() {
+              profile_picture = "<img class='profile_picture' src='" + profile["avatar_url"] + "'/>";
+              output = "<p class='lead'>" + profile["bio"] + "</p>";
+              output = output + "<div class='btn-block btn-group' role='group'>"
+                        + '<a class="btn btn-outline-secondary" role="button">'
+                        + profile["location"] + '</a>'
+                        + '<a href="' + profile["blog"] + '" class="btn btn-outline-secondary" role="button">Home Page</a>'
+                        + '<a class="btn btn-outline-secondary" role="button">#' + profile["public_repos"] + ' Repos</a>'
+                        + "</div>";
+
+              $('#gh_picture').html(profile_picture);
+              $('#gh_profile').html(output);
+            }
+
+            function outputPageContent() {
+              if(repositories.length == 0) { outhtml = outhtml + '<p>No repos!</p>'; }
+              else {
+                outhtml = '<div class="card-deck">';
+                outhtml = outhtml + '<div class="row">';
+                for (i = 0; i < 6; i++) {
+                  // FINDS MILISECONDS FOR JSON OBJECT
+                  var milisecs = Date.parse(repositories[i].pushed_at);
+                  var lastUpdate = new Date(milisecs);
+
+                  // FINDS THE DATE TIME NOW
+                  var now = new Date(Date.now());
+
+                  // GETS THE TIME DIFFERENCE AND WORKS OUT DIFFERENCE IN DAYS
+                  var timeDiff = Math.abs(now.getTime() - lastUpdate.getTime());
+                  var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+                  // SETS DIFFERENCE TO 0 READY FOR IF STATEMENT BELOW
+                  var difference = 0;
+                  var multiplier = "Days";
+
+                  // CONVERTS TO DAY(S) OR MONTH(S)
+                  if (diffDays >= 30) {
+                    difference = Math.ceil(diffDays / 30);
+                    multiplier = "Month";
+                    if (difference >= 2) {
+                      multiplier = "Months";
+                    }
+                  } else {
+                    difference = diffDays;
+                    if (diffDays == 1) {
+                      multiplier = "Day";
+                    }
+                  }
+
+                  // CREATES CARD FOR OUTPUTTING TO SCREEN
+                  outhtml = outhtml + createCard(repositories[i], multiplier, difference);
+                }
+                outhtml = outhtml + '</div></div>';
+              }
+
+              $('#gh_lastupdatedrepo').html(outhtml);
+            }
+        }); // end requestJSON Ajax call
+
+      function requestJSON(url, callback) {
+        $.ajax({
+          url: url,
+          complete: function(xhr) {
+            callback.call(null, xhr.responseJSON);
+          }
+        });
+      }
+    });
+
+    function onLoad() {
+      setupLastUpdatedRepos();
+    }
+
+    window.onload = onLoad;
   </script>
 </body>
