@@ -100,8 +100,11 @@
 
               outhtml = outhtml + '<div class="row">';
               numRepos = repositories.length;
+              numSelected = 0;
               for (i = 0; i < numRepos; i++) {
                 if (repositories[i].name.toLowerCase().indexOf(searchTerm) !== -1) {
+                  numSelected += 1;
+
                   // FINDS MILISECONDS FOR JSON OBJECT
                   var milisecs = Date.parse(repositories[i].pushed_at);
                   var lastUpdate = new Date(milisecs);
@@ -133,6 +136,11 @@
 
                   outhtml = outhtml + createCard(repositories[i], multiplier, difference);
                 }
+              }
+              if (numSelected == 0) {
+                outhtml = outhtml + '<div class="col-sm-12" height="100%"><div class="card" style="background-color:rgba(0, 0, 0, 0); border-color:rgba(0, 0, 0, 0)"><div class="card-body">';
+                outhtml = outhtml + "<h4 class='card-title text-center'>No Repositories Found!</h4>";
+                outhtml = outhtml + "</div></div>";
               }
               outhtml = outhtml + '</div></div>';
             }
