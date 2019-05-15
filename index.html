@@ -77,7 +77,7 @@
       $('#gh_lastupdatedrepo').html("<img class='mx-auto d-block' style='height: 60px; width: 60px;' src='img/spinner.gif'/>");
 
       // Get the search results
-      var searchTerm = $('#gh_search').val();
+      var searchTerm = $('#gh_search').val().toLowerCase();
 
       var username = 'thomaspickup';
       var requri   = 'https://api.github.com/users/'+username;
@@ -101,7 +101,7 @@
               outhtml = outhtml + '<div class="row">';
               numRepos = repositories.length;
               for (i = 0; i < numRepos; i++) {
-                if (repositories[i].name.indexOf(searchTerm) !== -1) {
+                if (repositories[i].name.toLowerCase().indexOf(searchTerm) !== -1) {
                   // FINDS MILISECONDS FOR JSON OBJECT
                   var milisecs = Date.parse(repositories[i].pushed_at);
                   var lastUpdate = new Date(milisecs);
